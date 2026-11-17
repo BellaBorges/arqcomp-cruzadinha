@@ -15,8 +15,6 @@ Termos compostos vão **sem espaço e sem acento** (ex.: `MEMORIADEMASSA`, `ADDR
 
 ### Atalhos
 
-| Tecla / ação | O que faz |
-| --- | --- |
 | Clicar numa casa já selecionada | Alterna entre horizontal e vertical |
 | Setas | Movem para a casa vizinha |
 | Backspace numa casa vazia | Volta e apaga a letra anterior |
@@ -47,10 +45,5 @@ DATABUS e MICROCONTROLADOR. Todas se cruzam com pelo menos uma outra palavra.
 
 ## Regras seguidas nas pistas
 
-- Escritas com palavras próprias, com no máximo 15 palavras cada.
+- Escritas com no máximo 15 palavras cada.
 - Nenhuma pista contém a resposta, parte dela ou a sigla por extenso.
-
-## Para trocar ou acrescentar palavras
-
-Edite `PALAVRAS` (e `LINHAS`/`COLUNAS`, se o tabuleiro crescer) em `script.js`. Duas palavras só
-podem se encostar em uma letra comum; letras vizinhas sem cruzamento formariam palavras inválidas.
