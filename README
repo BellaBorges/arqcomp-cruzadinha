@@ -1,0 +1,56 @@
+# Cruzadinha de Arquitetura Computacional
+
+Jogo de palavras cruzadas que roda direto no navegador, para treinar os termos da aula de
+**Tópicos de Arquitetura Computacional**. Feito só com HTML, CSS e JavaScript puros.
+
+## Como jogar
+
+1. Abra o arquivo `index.html` no navegador (basta dar dois cliques; não precisa de servidor).
+2. Clique numa casa e leia a pista que aparece acima do tabuleiro, ou clique numa pista da lista.
+3. Digite as letras direto nas casas. O cursor avança sozinho.
+4. Clique em **Conferir** para ver quais palavras estão certas ou erradas e quantas você acertou.
+5. Clique em **Reiniciar** para limpar o tabuleiro e jogar de novo.
+
+Termos compostos vão **sem espaço e sem acento** (ex.: `MEMORIADEMASSA`, `ADDRESSBUS`).
+
+### Atalhos
+
+| Tecla / ação | O que faz |
+| --- | --- |
+| Clicar numa casa já selecionada | Alterna entre horizontal e vertical |
+| Setas | Movem para a casa vizinha |
+| Backspace numa casa vazia | Volta e apaga a letra anterior |
+| Tab / Shift + Tab | Vai para a próxima / anterior palavra |
+
+## Estrutura
+
+```
+index.html   página e estrutura do jogo
+style.css    visual do tabuleiro, pistas e botões
+script.js    dados das palavras, montagem do tabuleiro e regras do jogo
+README.md    este arquivo
+```
+
+## Como o código funciona
+
+- `PALAVRAS` em `script.js` guarda cada resposta, a posição inicial (linha e coluna), a direção
+  (`H` ou `V`) e a pista. As casas compartilhadas entre palavras são detectadas automaticamente.
+- A numeração das pistas é calculada em ordem de leitura (esquerda para direita, de cima para baixo).
+- **Conferir** compara o que foi digitado com a resposta de cada palavra e marca ✔ certa, ✘ errada
+  ou "incompleta" na lista de pistas; as casas também ficam verdes ou vermelhas.
+- O contador mostra "X de 14 palavras" com as palavras totalmente corretas.
+
+## Termos do jogo (14 palavras)
+
+CPU, ULA, UC, REGISTRADORES, RAM, ROM, EEPROM, FLASH, CACHE, MEMORIADEMASSA, DMA, ADDRESSBUS,
+DATABUS e MICROCONTROLADOR. Todas se cruzam com pelo menos uma outra palavra.
+
+## Regras seguidas nas pistas
+
+- Escritas com palavras próprias, com no máximo 15 palavras cada.
+- Nenhuma pista contém a resposta, parte dela ou a sigla por extenso.
+
+## Para trocar ou acrescentar palavras
+
+Edite `PALAVRAS` (e `LINHAS`/`COLUNAS`, se o tabuleiro crescer) em `script.js`. Duas palavras só
+podem se encostar em uma letra comum; letras vizinhas sem cruzamento formariam palavras inválidas.

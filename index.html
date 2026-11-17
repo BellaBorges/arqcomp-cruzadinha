@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cruzadinha de Arquitetura Computacional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Cruzadinha de Arquitetura Computacional</h1>
+    <p>Leia a pista, descubra o termo e digite direto no tabuleiro.</p>
+    <p><strong style="color: red;">As letras devem ser colocadas em estilo MAIÚSCULAS e sem acento.</strong></p>
+
+  </header>
+
+  <main class="jogo">
+    <section class="painel-tabuleiro" aria-label="Tabuleiro">
+      <div class="barra">
+        <div class="placar" role="status" aria-live="polite">
+          <strong id="contador">0 de 14 palavras</strong>
+          <div class="progresso" aria-hidden="true"><span id="progresso"></span></div>
+        </div>
+        <div class="acoes">
+          <button type="button" id="btn-conferir" class="btn primario">Conferir</button>
+          <button type="button" id="btn-reiniciar" class="btn">Reiniciar</button>
+        </div>
+      </div>
+
+      <p id="pista-atual" class="pista-atual" aria-live="polite"></p>
+      <div class="rolagem"><div id="tabuleiro" class="tabuleiro" role="group" aria-label="Palavras cruzadas"></div></div>
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="painel-pistas" aria-label="Pistas">
+      <div class="coluna">
+        <h2>Horizontais</h2>
+        <ol id="lista-h" class="pistas"></ol>
+      </div>
+      <div class="coluna">
+        <h2>Verticais</h2>
+        <ol id="lista-v" class="pistas"></ol>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
