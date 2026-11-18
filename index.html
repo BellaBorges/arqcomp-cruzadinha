@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cruzadinha de Arquitetura Computacional</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="topo">
+  <header class="cabecalho">
+    <span class="selo-curso">Tópicos de Arquitetura Computacional</span>
     <h1>Cruzadinha de Arquitetura Computacional</h1>
     <p>Leia a pista, descubra o termo e digite direto no tabuleiro.</p>
-    <p><strong style="color: red;">As letras devem ser colocadas em estilo MAIÚSCULAS e sem acento.</strong></p>
-
+    <span class="aviso">As letras devem ser colocadas em estilo MAIÚSCULAS e sem acento.</span>
   </header>
 
   <main class="jogo">
@@ -28,7 +30,9 @@
       </div>
 
       <p id="pista-atual" class="pista-atual" aria-live="polite"></p>
-      <div class="rolagem"><div id="tabuleiro" class="tabuleiro" role="group" aria-label="Palavras cruzadas"></div></div>
+      <div class="rolagem">
+        <div id="tabuleiro" class="tabuleiro" role="group" aria-label="Palavras cruzadas"></div>
+      </div>
       <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
     </section>
 
@@ -46,4 +50,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

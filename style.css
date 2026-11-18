@@ -1,10 +1,11 @@
 :root {
-  --fundo: #e6ecef;
+  --fundo: #dfe8ec;
   --papel: #f7fafb;
   --tinta: #13222c;
   --tinta-suave: #4a606d;
   --trilha: #0d5c63;
   --trilha-escura: #09444a;
+  --trilha-funda: #062f34;
   --trilha-clara: #cde7e8;
   --solda: #f2b134;
   --borda: #8ea5b2;
@@ -12,7 +13,7 @@
   --certo-fundo: #d3eddc;
   --erro: #a62f24;
   --erro-fundo: #f7d9d5;
-  --celula: clamp(19px, calc((100vw - 2.5rem) / var(--colunas, 16)), 38px);
+  --celula: clamp(19px, calc((100vw - 4rem) / var(--colunas, 16)), 38px);
   color-scheme: light;
 }
 
@@ -20,72 +21,151 @@
 
 body {
   margin: 0;
-  background: var(--fundo);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(13, 92, 99, 0.12) 1px, transparent 1.5px) 0 0 / 22px 22px,
+    var(--fundo);
   color: var(--tinta);
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
   line-height: 1.45;
 }
 
-.topo { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.25rem 0.5rem; }
-.topo h1 { margin: 0 0 0.25rem; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -0.01em; }
-.topo p { margin: 0; color: var(--tinta-suave); max-width: 62ch; }
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+  position: relative;
+  overflow: hidden;
+  background:
+    /* trilhas horizontais */
+    linear-gradient(90deg, transparent 0 40px, rgba(242, 177, 52, 0.16) 40px 42px, transparent 42px) 0 18px / 160px 56px,
+    linear-gradient(90deg, rgba(205, 231, 232, 0.10) 0 90px, transparent 90px) 0 44px / 180px 2px,
+    /* pontos de solda */
+    radial-gradient(circle, rgba(242, 177, 52, 0.55) 0 3px, transparent 3.5px) 40px 19px / 160px 56px,
+    linear-gradient(135deg, var(--trilha-funda), var(--trilha) 70%, var(--trilha-escura));
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1.25rem 3rem;
+  border-bottom: 5px solid var(--solda);
+  box-shadow: 0 6px 18px rgba(6, 47, 52, 0.25);
+}
+.cabecalho .selo-curso {
+  display: inline-block;
+  margin: 0 0 0.9rem;
+  padding: 0.3rem 0.9rem;
+  border: 1.5px solid rgba(242, 177, 52, 0.7);
+  border-radius: 999px;
+  color: var(--solda);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.cabecalho h1 {
+  margin: 0 auto 0.6rem;
+  max-width: 22ch;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.cabecalho p {
+  margin: 0 auto;
+  max-width: 56ch;
+  color: #d4e7e8;
+  font-size: 1.05rem;
+}
+.cabecalho .aviso {
+  display: inline-block;
+  margin-top: 1.1rem;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--erro);
+  border-left: 5px solid var(--erro);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
 
+/* ---------- Área do jogo ---------- */
 .jogo {
   max-width: 1120px;
-  margin: 0 auto;
-  padding: 1rem 1.25rem 2.5rem;
+  margin: -1.5rem auto 0;
+  padding: 0 1.25rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
   align-items: stretch;
+  position: relative;
+}
+
+/* Cartão que envolve placar + pista + tabuleiro */
+.jogo > section:first-child,
+.jogo > .area-tabuleiro {
+  background: var(--papel);
+  border: 1.5px solid var(--borda);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-shadow: 0 10px 28px rgba(19, 34, 44, 0.12);
 }
 
 /* Barra de controle */
-.barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem; }
-.placar { min-width: 11rem; }
+.barra {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.75rem; margin-bottom: 0.9rem;
+}
+.placar { min-width: 12rem; }
 .placar strong { font-size: 1.15rem; }
-.progresso { height: 6px; background: #c5d3da; border-radius: 3px; margin-top: 0.3rem; overflow: hidden; }
-.progresso span { display: block; height: 100%; width: 0; background: var(--trilha); transition: width 0.25s ease; }
+.progresso { height: 8px; background: #c5d3da; border-radius: 4px; margin-top: 0.35rem; overflow: hidden; }
+.progresso span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--trilha), var(--solda)); transition: width 0.25s ease; }
 
 .acoes { display: flex; gap: 0.5rem; }
 .btn {
   font: inherit; font-weight: 600;
-  padding: 0.55rem 1.1rem;
+  padding: 0.55rem 1.2rem;
   border: 2px solid var(--trilha);
   background: transparent; color: var(--trilha);
-  border-radius: 6px; cursor: pointer;
+  border-radius: 8px; cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 .btn:hover { background: var(--trilha-clara); }
+.btn:active { transform: translateY(1px); }
 .btn.primario { background: var(--trilha); color: #fff; }
 .btn.primario:hover { background: var(--trilha-escura); }
 .btn:focus-visible, .pista:focus-visible { outline: 3px solid var(--solda); outline-offset: 2px; }
 
 .pista-atual {
   min-height: 2.9em;
-  margin: 0 0 0.6rem;
-  padding: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.9rem;
   background: var(--trilha-escura);
   color: #fff;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--solda);
+  font-size: 0.98rem;
 }
 .pista-atual b { color: var(--solda); margin-right: 0.35rem; }
 
-/* Tabuleiro */
-.rolagem { overflow-x: auto; padding: 4px; }
+/* ---------- Tabuleiro (centralizado) ---------- */
+.rolagem {
+  overflow-x: auto;
+  padding: 1rem 4px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(13, 92, 99, 0.10) 1px, transparent 1.5px) 0 0 / 16px 16px,
+    #eef4f6;
+  border-radius: 10px;
+}
 .tabuleiro {
   display: grid;
   grid-template-columns: repeat(var(--colunas), var(--celula));
   grid-auto-rows: var(--celula);
   gap: 2px;
   width: max-content;
+  margin: 0 auto; /* centraliza; rola só se for maior que a tela */
 }
 .vazia { visibility: hidden; }
 .celula {
   position: relative;
   background: var(--papel);
   border: 1.5px solid #2b3d49;
-  border-radius: 3px;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(19, 34, 44, 0.18);
 }
 .celula input {
   width: 100%; height: 100%;
@@ -112,33 +192,41 @@ body {
 .celula.certa input { color: var(--certo); }
 .celula.errada input { color: var(--erro); }
 
-.mensagem { min-height: 1.5em; margin: 0.75rem 0 0; font-weight: 600; }
+.mensagem { min-height: 1.5em; margin: 0.9rem 0 0; font-weight: 600; text-align: center; }
 .mensagem.ok { color: var(--certo); }
 .mensagem.aviso { color: var(--erro); }
 
-/* Pistas abaixo do tabuleiro */
+/* ---------- Pistas ---------- */
 .painel-pistas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+}
+.coluna {
+  background: var(--papel);
+  border: 1.5px solid var(--borda);
+  border-radius: 14px;
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: 0 6px 18px rgba(19, 34, 44, 0.08);
 }
 .coluna h2 {
-  margin: 0 0 0.5rem; padding-bottom: 0.3rem;
-  font-size: 1.05rem;
-  border-bottom: 2px solid var(--trilha);
+  margin: 0 0 0.7rem; padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+  color: var(--trilha-escura);
+  border-bottom: 3px solid var(--solda);
 }
-.pistas { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pistas { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
 .pista {
   width: 100%;
   display: grid; grid-template-columns: 1.8rem 1fr auto; gap: 0.5rem; align-items: baseline;
   text-align: left;
   font: inherit; color: inherit;
-  background: var(--papel);
-  border: 1.5px solid transparent;
+  background: #fff;
+  border: 1.5px solid #dbe5ea;
   border-left: 5px solid var(--borda);
-  border-radius: 4px;
-  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
   cursor: pointer;
 }
 .pista:hover { border-color: var(--trilha); border-left-color: var(--trilha); }
@@ -152,6 +240,11 @@ body {
 .pistas li.errada .selo { color: var(--erro); }
 .pistas li.incompleta .selo { color: var(--tinta-suave); font-weight: 600; }
 
+@media (max-width: 600px) {
+  .cabecalho { padding: 1.75rem 1rem 2.5rem; }
+  .jogo { padding: 0 0.75rem 2rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .progresso span { transition: none; }
+  .progresso span, .btn { transition: none; }
 }
