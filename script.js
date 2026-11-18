@@ -4,21 +4,22 @@ const LINHAS = 14;
 const COLUNAS = 16;
 
 const PALAVRAS = [
-  { resposta: "MICROCONTROLADOR", linha: 7,  coluna: 0,  dir: "H", pista: "Chip que junta processador e memória; usado em placas como o Arduino para controlar dispositivos." },
-  { resposta: "MEMORIADEMASSA",   linha: 0,  coluna: 13, dir: "V", pista: "Guarda seus arquivos e programas para sempre, como o disco rígido (HD)." },
-  { resposta: "REGISTRADORES",    linha: 1,  coluna: 9,  dir: "V", pista: "Gavetas minúsculas dentro do processador que guardam valores rapidamente." },
-  { resposta: "ADDRESSBUS",       linha: 4,  coluna: 3,  dir: "V", pista: "Caminho que indica qual endereço da memória o processador quer acessar." },
-  { resposta: "DATABUS",          linha: 5,  coluna: 3,  dir: "H", pista: "Caminho por onde os dados de fato viajam entre a memória e a CPU." },
-  { resposta: "EEPROM",           linha: 4,  coluna: 15, dir: "V", pista: "Memória que salva ajustes mesmo sem energia e pode ser reescrita." },
-  { resposta: "CACHE",            linha: 2,  coluna: 5,  dir: "H", pista: "Memória super rápida que fica bem pertinho da CPU para guardar o que é mais usado." },
-  { resposta: "FLASH",            linha: 6,  coluna: 11, dir: "V", pista: "Tipo de memória de pendrive; guarda tudo sem luz/energia e apaga por blocos." },
-  { resposta: "DMA",              linha: 0,  coluna: 12, dir: "H", pista: "Atalho para o dispositivo mexer direto na memória sem atrapalhar a CPU." },
-  { resposta: "CPU",              linha: 7,  coluna: 5,  dir: "V", pista: "O cérebro do computador: lê e executa todas as ordens dos programas." },
-  { resposta: "ROM",              linha: 1,  coluna: 9,  dir: "H", pista: "Memória que vem gravada de fábrica e não perde os dados ao desligar." },
-  { resposta: "ULA",              linha: 12, coluna: 3,  dir: "H", pista: "Parte do processador que faz os cálculos matemáticos e lógicos." },
-  { resposta: "RAM",              linha: 11, coluna: 5,  dir: "V", pista: "Memória de trabalho que guarda os programas abertos e apaga ao desligar." },
-  { resposta: "UC",               linha: 9,  coluna: 5,  dir: "H", pista: "O maestro da CPU: comanda todas as ordens e o tempo de execução." },
+  { resposta: "MICROCONTROLADOR", linha: 7, coluna: 0, dir: "H", pista: "Chip único que reúne CPU, memória e entrada e saída; o ATmega328P é um exemplo." },
+  { resposta: "MEMORIADEMASSA", linha: 0, coluna: 13, dir: "V", pista: "Guarda seus arquivos por muito tempo, como num HD ou SSD, mesmo sem energia." },
+  { resposta: "REGISTRADORES", linha: 1, coluna: 9, dir: "V", pista: "Espaços minúsculos e super rápidos dentro da CPU, que guardam os valores em uso." },
+  { resposta: "ADDRESSBUS", linha: 4, coluna: 3, dir: "V", pista: "Fios que avisam à memória qual posição deve ser lida ou escrita." },
+  { resposta: "DATABUS", linha: 5, coluna: 3, dir: "H", pista: "Fios compartilhados por onde o conteúdo viaja entre CPU, memória e entrada e saída." },
+  { resposta: "EEPROM", linha: 4, coluna: 15, dir: "V", pista: "Pequeno espaço do Arduino onde dá para salvar informações que sobrevivem ao desligamento." },
+  { resposta: "CACHE", linha: 2, coluna: 5, dir: "H", pista: "Pequeno espaço veloz perto da CPU que guarda cópias do que ela acabou de usar." },
+  { resposta: "FLASH", linha: 6, coluna: 11, dir: "V", pista: "Mesma tecnologia do pendrive; guarda o programa do Arduino mesmo desligado." },
+  { resposta: "DMA", linha: 0, coluna: 12, dir: "H", pista: "Permite que um dispositivo troque informações com a RAM sem a CPU copiar tudo." },
+  { resposta: "CPU", linha: 7, coluna: 5, dir: "V", pista: "Chip principal que busca e executa, uma a uma, as instruções de um programa." },
+  { resposta: "ROM", linha: 1, coluna: 9, dir: "H", pista: "Guarda o programa básico do equipamento e mantém o conteúdo mesmo sem energia." },
+  { resposta: "ULA", linha: 12, coluna: 3, dir: "H", pista: "Faz as somas, subtrações e comparações dentro do processador." },
+  { resposta: "RAM", linha: 11, coluna: 5, dir: "V", pista: "Espaço de trabalho que guarda os programas rodando e some quando a energia acaba." },
+  { resposta: "UC", linha: 9, coluna: 5, dir: "H", pista: "Lê cada instrução e manda as outras partes do computador agirem." },
 ];
+
 
 const celulas = new Map();
 const entradas = [];
@@ -252,11 +253,11 @@ function ligarEventos(cel) {
       ev.preventDefault();
       const { entrada } = ativa;
       const ant = entrada.celulas[entrada.celulas.indexOf(cel) - 1];
-      if (ant) { 
-        ant.input.value = ""; 
-        limparConferencia(ant); 
-        verificarPreenchimentoParcial(); 
-        focar(ant); 
+      if (ant) {
+        ant.input.value = "";
+        limparConferencia(ant);
+        verificarPreenchimentoParcial();
+        focar(ant);
       }
     } else if (ev.key === "Tab") {
       ev.preventDefault();
