@@ -35,22 +35,22 @@ https://bellaborges.github.io/arqcomp-cruzadinha/
 
 O jogo possui 14 palavras relacionadas à Arquitetura Computacional:
 
-| Palavra | Pista |
-|---|---|
-| MICROCONTROLADOR | Chip único que reúne CPU, memória e entrada e saída; o ATmega328P é um exemplo. |
-| MEMORIADEMASSA | Guarda seus arquivos por muito tempo, como num HD ou SSD, mesmo sem energia. |
-| REGISTRADORES | Espaços minúsculos e super rápidos dentro da CPU, que guardam os valores em uso. |
-| ADDRESSBUS | Fios que avisam à memória qual posição deve ser lida ou escrita. |
-| DATABUS | Fios compartilhados por onde o conteúdo viaja entre CPU, memória e entrada e saída. |
-| EEPROM | Pequeno espaço do Arduino onde dá para salvar informações que sobrevivem ao desligamento. |
-| CACHE | Pequeno espaço veloz perto da CPU que guarda cópias do que ela acabou de usar. |
-| FLASH | Mesma tecnologia do pendrive; guarda o programa do Arduino mesmo desligado. |
-| DMA | Permite que um dispositivo troque informações com a RAM sem a CPU copiar tudo. |
-| CPU | Chip principal que busca e executa, uma a uma, as instruções de um programa. |
-| ROM | Guarda o programa básico do equipamento e mantém o conteúdo mesmo sem energia. |
-| ULA | Faz as somas, subtrações e comparações dentro do processador. |
-| RAM | Espaço de trabalho que guarda os programas rodando e some quando a energia acaba. |
-| UC | Lê cada instrução e manda as outras partes do computador agirem. |
+ Palavra - Pista 
+
+ -  MICROCONTROLADOR - Chip único que reúne CPU, memória e entrada e saída; o ATmega328P é um exemplo. 
+ -  MEMORIADEMASSA - Guarda seus arquivos por muito tempo, como num HD ou SSD, mesmo sem energia. 
+ -  REGISTRADORES - Espaços minúsculos e super rápidos dentro da CPU, que guardam os valores em uso. 
+ -  ADDRESSBUS - Fios que avisam à memória qual posição deve ser lida ou escrita. 
+ -  DATABUS - Fios compartilhados por onde o conteúdo viaja entre CPU, memória e entrada e saída. 
+ -  EEPROM - Pequeno espaço do Arduino onde dá para salvar informações que sobrevivem ao desligamento. 
+ -  CACHE - Pequeno espaço veloz perto da CPU que guarda cópias do que ela acabou de usar. 
+ -  FLASH - Mesma tecnologia do pendrive; guarda o programa do Arduino mesmo desligado. 
+ -  DMA - Permite que um dispositivo troque informações com a RAM sem a CPU copiar tudo. 
+ -  CPU - Chip principal que busca e executa, uma a uma, as instruções de um programa. 
+ -  ROM - Guarda o programa básico do equipamento e mantém o conteúdo mesmo sem energia.
+ -  ULA - Faz as somas, subtrações e comparações dentro do processador. 
+ -  RAM - Espaço de trabalho que guarda os programas rodando e some quando a energia acaba. 
+ -  UC - Lê cada instrução e manda as outras partes do computador agirem. 
 
 ## Estrutura do projeto
 
