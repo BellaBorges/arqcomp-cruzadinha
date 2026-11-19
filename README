@@ -1,49 +1,75 @@
-# Cruzadinha de Arquitetura Computacional
+# Circuito Cruzado 🧩
+### Uma cruzadinha pelo universo da Arquitetura Computacional
 
-Jogo de palavras cruzadas que roda direto no navegador, para treinar os termos da aula de
-**Tópicos de Arquitetura Computacional**. Feito só com HTML, CSS e JavaScript puros.
+O Circuito Cruzado é um jogo de palavras cruzadas desenvolvido para revisar e praticar os conceitos estudados na disciplina de **Tópicos de Arquitetura Computacional**.
+
+O desafio é completar o tabuleiro utilizando pistas relacionadas aos componentes do computador, tipos de memória, processadores e barramentos.
+
+Desenvolvido com HTML, CSS e JavaScript puros, o jogo funciona diretamente no navegador.
+
+## Link do jogo publicado
+
 
 ## Como jogar
 
-1. Abra o arquivo `index.html` no navegador (basta dar dois cliques; não precisa de servidor).
-2. Clique numa casa e leia a pista que aparece acima do tabuleiro, ou clique numa pista da lista.
-3. Digite as letras direto nas casas. O cursor avança sozinho.
-4. Clique em **Conferir** para ver quais palavras estão certas ou erradas e quantas você acertou.
-5. Clique em **Reiniciar** para limpar o tabuleiro e jogar de novo.
+1. Acesse o jogo pelo link disponibilizado ou abra o arquivo `index.html` no navegador.
+2. Clique em uma casa do tabuleiro para selecionar uma palavra e visualizar sua pista.
+3. Também é possível clicar diretamente em uma pista da lista.
+4. Digite as letras nas casas correspondentes. O cursor avança automaticamente.
+5. Clique em **Conferir** para verificar suas respostas.
+6. O jogo indicará quais palavras estão corretas, incorretas ou incompletas.
+7. Para começar novamente, clique em **Reiniciar**.
 
-Termos compostos vão **sem espaço e sem acento** (ex.: `MEMORIADEMASSA`, `ADDRESSBUS`).
+**Atenção:** palavras compostas devem ser digitadas sem espaços e sem acentos.
 
-### Atalhos
+### Atalhos do teclado
 
-| Clicar numa casa já selecionada | Alterna entre horizontal e vertical |
-| Setas | Movem para a casa vizinha |
-| Backspace numa casa vazia | Volta e apaga a letra anterior |
-| Tab / Shift + Tab | Vai para a próxima / anterior palavra |
+- **Clique em uma casa já selecionada:** alterna entre horizontal e vertical.
+- **Setas:** movimentam o cursor pelo tabuleiro.
+- **Backspace:** apaga a letra anterior quando a casa selecionada está vazia.
+- **Tab / Shift + Tab:** avança ou retorna para a próxima palavra.
 
-## Estrutura
+## Palavras utilizadas e suas pistas
 
+O jogo possui 14 palavras relacionadas à Arquitetura Computacional:
+
+| Palavra | Pista |
+|---|---|
+| MICROCONTROLADOR | Chip único que reúne CPU, memória e entrada e saída; o ATmega328P é um exemplo. |
+| MEMORIADEMASSA | Guarda seus arquivos por muito tempo, como num HD ou SSD, mesmo sem energia. |
+| REGISTRADORES | Espaços minúsculos e super rápidos dentro da CPU, que guardam os valores em uso. |
+| ADDRESSBUS | Fios que avisam à memória qual posição deve ser lida ou escrita. |
+| DATABUS | Fios compartilhados por onde o conteúdo viaja entre CPU, memória e entrada e saída. |
+| EEPROM | Pequeno espaço do Arduino onde dá para salvar informações que sobrevivem ao desligamento. |
+| CACHE | Pequeno espaço veloz perto da CPU que guarda cópias do que ela acabou de usar. |
+| FLASH | Mesma tecnologia do pendrive; guarda o programa do Arduino mesmo desligado. |
+| DMA | Permite que um dispositivo troque informações com a RAM sem a CPU copiar tudo. |
+| CPU | Chip principal que busca e executa, uma a uma, as instruções de um programa. |
+| ROM | Guarda o programa básico do equipamento e mantém o conteúdo mesmo sem energia. |
+| ULA | Faz as somas, subtrações e comparações dentro do processador. |
+| RAM | Espaço de trabalho que guarda os programas rodando e some quando a energia acaba. |
+| UC | Lê cada instrução e manda as outras partes do computador agirem. |
+
+## Estrutura do projeto
+
+```text
+index.html   Página e estrutura do jogo
+style.css    Estilização do tabuleiro, pistas e botões
+script.js    Palavras, montagem do tabuleiro e regras do jogo
+README.md    Documentação do projeto
 ```
-index.html   página e estrutura do jogo
-style.css    visual do tabuleiro, pistas e botões
-script.js    dados das palavras, montagem do tabuleiro e regras do jogo
-README.md    este arquivo
-```
 
-## Como o código funciona
+## Funcionamento do código
 
-- `PALAVRAS` em `script.js` guarda cada resposta, a posição inicial (linha e coluna), a direção
-  (`H` ou `V`) e a pista. As casas compartilhadas entre palavras são detectadas automaticamente.
-- A numeração das pistas é calculada em ordem de leitura (esquerda para direita, de cima para baixo).
-- **Conferir** compara o que foi digitado com a resposta de cada palavra e marca ✔ certa, ✘ errada
-  ou "incompleta" na lista de pistas; as casas também ficam verdes ou vermelhas.
-- O contador mostra "X de 14 palavras" com as palavras totalmente corretas.
+- **PALAVRAS:** armazena as respostas, posições iniciais (linha e coluna), direções (horizontal ou vertical) e pistas.
+- **Montagem do tabuleiro:** identifica automaticamente as casas compartilhadas entre as palavras.
+- **Numeração:** as pistas são numeradas seguindo a ordem de leitura, da esquerda para a direita e de cima para baixo.
+- **Verificação:** compara as respostas digitadas com as palavras cadastradas e identifica acertos, erros e respostas incompletas.
+- **Placar:** apresenta a quantidade de palavras acertadas em relação ao total de 14 palavras.
 
-## Termos do jogo (14 palavras)
+## Regras utilizadas na elaboração das pistas
 
-CPU, ULA, UC, REGISTRADORES, RAM, ROM, EEPROM, FLASH, CACHE, MEMORIADEMASSA, DMA, ADDRESSBUS,
-DATABUS e MICROCONTROLADOR. Todas se cruzam com pelo menos uma outra palavra.
-
-## Regras seguidas nas pistas
-
-- Escritas com no máximo 15 palavras cada.
-- Nenhuma pista contém a resposta, parte dela ou a sigla por extenso.
+- Cada pista possui no máximo 15 palavras.
+- Nenhuma pista apresenta diretamente a resposta.
+- As pistas não contêm partes da resposta nem a sigla por extenso.
+- Todas as palavras se cruzam com pelo menos uma outra no tabuleiro.
